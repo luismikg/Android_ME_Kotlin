@@ -14,15 +14,13 @@
 * limitations under the License.
 */
 
-package com.example.android.android_me.ui
+package com.example.android.android_me.ui.BodyPart
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
 import com.example.android.android_me.R
 import com.example.android.android_me.data.AndroidImageAssets
-import kotlinx.android.synthetic.main.fragment_body_part.*
-import kotlin.concurrent.timerTask
 
 // This activity will display a custom Android image composed of three body parts: head, body, and legs
 class AndroidMeActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.android.android_me.ui
+package com.example.android.android_me.ui.BodyPart
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.example.android.android_me.R
-import com.example.android.android_me.data.AndroidImageAssets
 import java.util.ArrayList
 
 class BodyPartFragment: Fragment() {
@@ -33,15 +32,15 @@ class BodyPartFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         if ( savedInstanceState != null){
-            this.mListIndex = savedInstanceState.getInt( BodyPartFragment.LIST_INDEX )
-            this.mImageIds = savedInstanceState.getIntegerArrayList( BodyPartFragment.IMAGE_ID_LIST )
+            this.mListIndex = savedInstanceState.getInt(LIST_INDEX)
+            this.mImageIds = savedInstanceState.getIntegerArrayList(IMAGE_ID_LIST)
         }
 
         var rootView:View = inflater!!.inflate(R.layout.fragment_body_part, container, false)
         val imageView:ImageView = rootView.findViewById(R.id.body_part_image_view) as ImageView
 
         if ( this.mImageIds.isNullOrEmpty() ) {
-            Log.v(BodyPartFragment.TAG, "Este fragmento tiene nulo a su lista de id's")
+            Log.v(TAG, "Este fragmento tiene nulo a su lista de id's")
         }
         else {
 
@@ -62,7 +61,7 @@ class BodyPartFragment: Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle?) {
 
-        outState!!.putIntegerArrayList( BodyPartFragment.IMAGE_ID_LIST, this.mImageIds as ArrayList<Int>? )
-        outState!!.putInt( BodyPartFragment.LIST_INDEX, this.mListIndex )
+        outState!!.putIntegerArrayList(IMAGE_ID_LIST, this.mImageIds as ArrayList<Int>? )
+        outState!!.putInt(LIST_INDEX, this.mListIndex )
     }
 }
