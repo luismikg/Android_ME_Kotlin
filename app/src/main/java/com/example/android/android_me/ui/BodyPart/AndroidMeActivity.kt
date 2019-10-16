@@ -33,10 +33,14 @@ class AndroidMeActivity : AppCompatActivity() {
             return
         }
 
+        val headIndex:Int = intent.getIntExtra("headIndex", 0)
+        val bodyIndex:Int = intent.getIntExtra("bodyIndex", 0)
+        val legIndex:Int = intent.getIntExtra("legIndex", 0)
+
         //HEAD
         val headFragment = BodyPartFragment()
         headFragment.mImageIds = AndroidImageAssets.getHeads()
-        headFragment.mListIndex = 1
+        headFragment.mListIndex = headIndex
 
         val fragmentManager = supportFragmentManager
         fragmentManager.beginTransaction()
@@ -46,7 +50,7 @@ class AndroidMeActivity : AppCompatActivity() {
         //BODY
         val bodyFragment = BodyPartFragment()
         bodyFragment.mImageIds = AndroidImageAssets.getBodies()
-        bodyFragment.mListIndex = 1
+        bodyFragment.mListIndex = bodyIndex
         fragmentManager.beginTransaction()
                 .add(R.id.body_container, bodyFragment)
                 .commit()
@@ -54,7 +58,7 @@ class AndroidMeActivity : AppCompatActivity() {
         //LEGS
         val legsFragment = BodyPartFragment()
         legsFragment.mImageIds = AndroidImageAssets.getLegs()
-        legsFragment.mListIndex = 3
+        legsFragment.mListIndex = legIndex
         fragmentManager.beginTransaction().add(R.id.leg_container, legsFragment).commit()
     }
 }
